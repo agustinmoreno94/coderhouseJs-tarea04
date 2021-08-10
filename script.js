@@ -1,46 +1,37 @@
-let cpu = prompt ("Selecciona AMD o Intel")
+let tipoDeSolicitante = prompt("Es autonomo o Relacion de Dependencia?");
+let montoMaximoParaPedir = 0
+
+function verSolicitante(solicitante){
+    solicitante = solicitante.toLowerCase()
+    console.log(solicitante)
+    let iva = 0
+   if (solicitante == "autonomo"){
+        iva = 20 
+   }
+
+   if(solicitante == "relacion de dependencia"){
+       iva = 30
+   }
+   tipoDeSolicitante =  iva
+
+}
 
 
-function cpuPrecios(marcaCpu){
-    cpu = marcaCpu;
-    cpu = cpu.toLowerCase()
-    if (cpu == "amd"){
-       cpu = prompt("ryzen 3, ryzen 5 o ryzen 7?")
-       switch(cpu.toLowerCase()){
-           case "ryzen 3":
-           cpu = "El precio es de $11000"
-           break;
+verSolicitante(tipoDeSolicitante)
 
-           case "ryzen 5":
-           cpu = "El precio es de $18000"
-           break;
+function montoMaximo(iva){
 
-           case "ryzen 7":
-           cpu = "El precio es de $24000"
-           break;
-        }
+    iva = iva
+
+    if(iva ==20){
+        montoMaximoParaPedir = "$125235"
     }
 
-    if (cpu == "intel"){
-       cpu = prompt("i3,i5 o i7?")
-       switch(cpu.toLowerCase()){
-           case "i3":
-           cpu = "El precio es de $13000"
-           break;
-
-           case "i5":
-           cpu = "El precio es de $19000"
-           break;
-
-           case "i7":
-           cpu = "El precio es de $26000"
-           break;
-        }
+    if(iva == 30){
+        montoMaximoParaPedir = "$22430"
     }
 
 }
 
-cpuPrecios(cpu)
-alert(cpu)
-
-
+montoMaximo(tipoDeSolicitante)
+alert("el maximo que podes pedir es: "+montoMaximoParaPedir)
